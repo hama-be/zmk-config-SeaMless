@@ -23,7 +23,7 @@
 
         middle-click {
             bindings = <&mkp MB3>;
-            key-positions = <42 43>;
+            key-positions = <41 42>;
         };
 
         tab {
@@ -101,7 +101,7 @@
 &kp A             &kp S      &kp D         &kp F             &kp G        &kp H            &kp J                  &kp K        &kp L       &kp ENTER
 &mt LEFT_SHIFT Z  &kp X      &kp C         &kp V             &kp B        &kp N            &kp M                  &kp COMMA    &kp PERIOD  &mt RIGHT_SHIFT MINUS
 &kp GLOBE         &kp LCTRL  &kp LEFT_ALT  &mt LEFT_WIN TAB  &lt 1 SPACE  &lt 3 BACKSPACE  &mt RIGHT_SHIFT SLASH  &lt 6 ENTER  &trans      &lt 7 GLOBE
-                                                                          &kp ESC          &none          &mkp MB1     &mkp MB2
+                                                                          &kp ESC          &mkp MB1     &mkp MB2
             >;
 
             sensor-bindings = <&rsr_scroll_ud &rsr_scroll_lr>;
@@ -113,7 +113,7 @@
 &kp AT     &kp HASH    &kp ASTERISK   &kp PLUS         &kp EQUAL     &kp UNDERSCORE  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp SEMI       &kp COLON
 &kp GRAVE  &kp TILDE   &kp MINUS      &kp EXCLAMATION  &kp QUESTION  &kp PIPE        &kp LBKT              &kp RBKT               &kp SQT        &kp DOUBLE_QUOTES
 &trans     &trans      &trans         &trans           &trans        &kp BACKSPACE   &kp COMMA             &kp PERIOD             &kp ESC        &lt 5 ENTER
-                                                                     &trans          &none          &mkp MB1        &mkp MB2
+                                                                     &trans          &mkp MB1        &mkp MB2
             >;
         };
 
@@ -123,7 +123,7 @@
 &kp F6   &kp F7   &kp F8  &kp F9  &kp F10  &kp NUMBER_4   &kp NUMBER_5  &kp NUMBER_6  &kp ASTERISK     &kp SLASH
 &kp F1   &kp F2   &kp F3  &kp F4  &kp F5   &kp NUMBER_1   &kp NUMBER_2  &kp NUMBER_3  &kp RIGHT_BRACE  &kp COLON
 &trans   &trans   &trans  &trans  &trans   &kp BACKSPACE  &kp NUMBER_0  &kp PERIOD    &trans           &trans
-                                           &trans         &none         &mkp MB1       &mkp MB2
+                                           &trans         &mkp MB1       &mkp MB2
             >;
         };
 
@@ -133,7 +133,7 @@
 &kp LA(LG(LC(LEFT_ARROW)))  &kp LA(LG(LEFT_ARROW))  &kp LA(LG(F))         &kp RG(RA(RIGHT_ARROW))  &kp RA(RC(RG(RIGHT_ARROW)))  &kp LC(LS(TAB))     &kp LEFT_ARROW      &kp DOWN_ARROW  &kp RIGHT_ARROW      &kp RC(TAB)
 &trans                      &kp LG(LS(LEFT_ARROW))  &kp LG(LA(DOWN))      &kp LG(LS(RIGHT_ARROW))  &trans                       &trans              &trans              &trans          &trans               &trans
 &trans                      &trans                  &trans                &trans                   &trans                       &trans              &trans              &kp BACKSPACE   &trans               &trans
-                                                                                                                                &trans             &none              &mkp MB1            &mkp MB2
+                                                                                                                                &trans             &mkp MB1            &mkp MB2
             >;
         };
 
@@ -143,7 +143,7 @@
 &trans  &trans  &trans  &trans  &trans  &trans    &mkp MB1  &mkp MB3  &mkp MB2  &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &trans    &trans    &trans    &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &trans    &trans    &trans    &trans
-                                        &trans    &none     &mkp MB1  &mkp MB2
+                                        &trans    &mkp MB1  &mkp MB2
             >;
         };
 
@@ -153,7 +153,7 @@
 &trans  &trans  &kp ENTER  &trans          &trans          &trans              &trans            &trans  &trans  &trans
 &trans  &trans  &trans     &trans          &trans          &trans              &trans            &trans  &trans  &trans
 &trans  &trans  &trans     &kp LS(LG(N5))  &kp LS(LG(N4))  &kp LC(DOWN_ARROW)  &kp LC(UP_ARROW)  &trans  &trans  &trans
-                                                           &trans             &none             &mkp MB1            &mkp MB2
+                                                           &trans             &mkp MB1            &mkp MB2
             >;
         };
 
@@ -163,7 +163,7 @@
 &trans          &trans        &trans        &trans        &trans        &trans       &trans          &trans  &trans  &trans
 &trans          &trans        &trans        &trans        &trans        &trans       &trans          &trans  &trans  &trans
 &bt BT_SEL 0    &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &bootloader  &studio_unlock  &trans  &trans  &trans
-                                                                        &trans       &none           &kp LANG2    &kp LANG1
+                                                                        &trans       &kp LANG2    &kp LANG1
             >;
         };
 
@@ -173,7 +173,7 @@
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                                        &trans  &none   &trans  &trans
+                                        &trans  &trans  &trans
             >;
         };
     };
