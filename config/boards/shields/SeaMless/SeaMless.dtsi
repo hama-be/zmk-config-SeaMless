@@ -1,0 +1,158 @@
+#include <dt-bindings/zmk/matrix_transform.h>
+#include <physical_layouts.dtsi>
+
+/ {
+    chosen {
+        zmk,physical-layout = &SeaMless_physical_layout;
+        zmk,kscan = &kscan_composite;
+    };
+
+    SeaMless_physical_layout: SeaMless_physical_layout {
+        compatible = "zmk,physical-layout";
+        display-name = "Default";
+        transform = <&default_transform>;
+        kscan = <&kscan_composite>;
+
+        keys
+            = <&key_physical_attrs 100 100    0    0 0 0 0>
+            , <&key_physical_attrs 100 100  100    0 0 0 0>
+            , <&key_physical_attrs 100 100  200    0 0 0 0>
+            , <&key_physical_attrs 100 100  300    0 0 0 0>
+            , <&key_physical_attrs 100 100  400    0 0 0 0>
+            , <&key_physical_attrs 100 100  800    0 0 0 0>
+            , <&key_physical_attrs 100 100  900    0 0 0 0>
+            , <&key_physical_attrs 100 100 1000    0 0 0 0>
+            , <&key_physical_attrs 100 100 1100    0 0 0 0>
+            , <&key_physical_attrs 100 100 1200    0 0 0 0>
+
+            , <&key_physical_attrs 100 100    0  100 0 0 0>
+            , <&key_physical_attrs 100 100  100  100 0 0 0>
+            , <&key_physical_attrs 100 100  200  100 0 0 0>
+            , <&key_physical_attrs 100 100  300  100 0 0 0>
+            , <&key_physical_attrs 100 100  400  100 0 0 0>
+            , <&key_physical_attrs 100 100  800  100 0 0 0>
+            , <&key_physical_attrs 100 100  900  100 0 0 0>
+            , <&key_physical_attrs 100 100 1000  100 0 0 0>
+            , <&key_physical_attrs 100 100 1100  100 0 0 0>
+            , <&key_physical_attrs 100 100 1200  100 0 0 0>
+
+            , <&key_physical_attrs 100 100    0  200 0 0 0>
+            , <&key_physical_attrs 100 100  100  200 0 0 0>
+            , <&key_physical_attrs 100 100  200  200 0 0 0>
+            , <&key_physical_attrs 100 100  300  200 0 0 0>
+            , <&key_physical_attrs 100 100  400  200 0 0 0>
+            , <&key_physical_attrs 100 100  800  200 0 0 0>
+            , <&key_physical_attrs 100 100  900  200 0 0 0>
+            , <&key_physical_attrs 100 100 1000  200 0 0 0>
+            , <&key_physical_attrs 100 100 1100  200 0 0 0>
+            , <&key_physical_attrs 100 100 1200  200 0 0 0>
+
+            , <&key_physical_attrs 100 100    0  300 0 0 0>
+            , <&key_physical_attrs 100 100  100  300 0 0 0>
+            , <&key_physical_attrs 100 100  200  300 0 0 0>
+            , <&key_physical_attrs 100 100  300  300 0 0 0>
+            , <&key_physical_attrs 100 100  400  300 0 0 0>
+            , <&key_physical_attrs 100 100  800  300 0 0 0>
+            , <&key_physical_attrs 100 100  900  300 0 0 0>
+            , <&key_physical_attrs 100 100 1000  300 0 0 0>
+            , <&key_physical_attrs 100 100 1100  300 0 0 0>
+            , <&key_physical_attrs 100 100 1200  300 0 0 0>
+
+            , <&key_physical_attrs 100 100    0 (-110) 0 0 0> /* extra key above the upper-left key */
+            , <&key_physical_attrs   1   1 1400  500 0 0 0>   /* unused charlieplex slot */
+            , <&key_physical_attrs 100 100 1045 (-110) 0 0 0> /* MOUSE_SW1 */
+            , <&key_physical_attrs 100 100 1155 (-110) 0 0 0> /* MOUSE_SW2 */
+            ;
+    };
+
+    default_transform: keymap_transform_0 {
+        compatible = "zmk,matrix-transform";
+        columns = <7>;
+        rows = <8>;
+        map = <
+            RC(0,1) RC(0,2) RC(0,3) RC(0,4) RC(0,5)                     RC(0,6) RC(1,0) RC(1,2) RC(1,3) RC(1,4)
+            RC(1,5) RC(1,6) RC(2,0) RC(2,1) RC(2,3)                     RC(2,4) RC(2,5) RC(2,6) RC(3,0) RC(3,1)
+            RC(3,2) RC(3,4) RC(3,5) RC(3,6) RC(4,0)                     RC(4,1) RC(4,2) RC(4,3) RC(4,5) RC(4,6)
+            RC(5,0) RC(5,1) RC(5,2) RC(5,3) RC(5,4)                     RC(5,6) RC(6,0) RC(6,1) RC(6,2) RC(6,3)
+                                                                        RC(6,4) RC(6,5) RC(7,0) RC(7,1)
+        >;
+    };
+
+    kscan_composite: kscan_composite {
+        compatible = "zmk,kscan-composite";
+        rows = <8>;
+        columns = <7>;
+
+        charlieplex {
+            kscan = <&kscan_charlieplex>;
+        };
+
+        direct {
+            kscan = <&kscan_direct>;
+            row-offset = <7>;
+        };
+    };
+
+    kscan_charlieplex: kscan_charlieplex {
+        compatible = "zmk,kscan-gpio-charlieplex";
+        label = "KSCAN_CHARLIEPLEX";
+        wakeup-source;
+        interrupt-gpios = <&gpio0 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>; /* INTR */
+        gpios
+            = <&gpio0 15 GPIO_ACTIVE_HIGH> /* IO_0 */
+            , <&gpio0 3 GPIO_ACTIVE_HIGH>  /* IO_1 */
+            , <&gpio0 19 GPIO_ACTIVE_HIGH> /* IO_2 */
+            , <&gpio0 28 GPIO_ACTIVE_HIGH> /* IO_3 */
+            , <&gpio1 1 GPIO_ACTIVE_HIGH>  /* IO_4 */
+            , <&gpio0 29 GPIO_ACTIVE_HIGH> /* IO_5 */
+            , <&gpio0 9 GPIO_ACTIVE_HIGH>  /* IO_6 */
+            ;
+        debounce-press-ms = <5>;
+        debounce-release-ms = <5>;
+    };
+
+    kscan_direct: kscan_direct {
+        compatible = "zmk,kscan-gpio-direct";
+        label = "KSCAN_DIRECT";
+        wakeup-source;
+        input-gpios
+            = <&gpio1 7 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>  /* MOUSE_SW1 */
+            , <&gpio1 5 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>  /* MOUSE_SW2 */
+            ;
+        debounce-press-ms = <5>;
+        debounce-release-ms = <5>;
+    };
+
+    left_encoder: left_encoder {
+        compatible = "alps,ec11";
+        a-gpios = <&gpio0 4 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;  /* RE1A */
+        b-gpios = <&gpio0 10 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; /* RE1B */
+        steps = <12>;
+        status = "okay";
+    };
+
+    right_encoder: right_encoder {
+        compatible = "alps,ec11";
+        a-gpios = <&gpio0 5 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;  /* RE2A */
+        b-gpios = <&gpio1 11 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; /* RE2B */
+        steps = <12>;
+        status = "okay";
+    };
+
+    sensors: sensors {
+        compatible = "zmk,keymap-sensors";
+        sensors = <&left_encoder &right_encoder>;
+        left_encoder {
+            triggers-per-rotation = <6>;
+        };
+        right_encoder {
+            triggers-per-rotation = <6>;
+        };
+    };
+
+    chg_stat: chg_stat {
+        compatible = "custom,chg-stat";
+        gpios = <&gpio0 17 GPIO_ACTIVE_LOW>;
+        status = "okay";
+    };
+};

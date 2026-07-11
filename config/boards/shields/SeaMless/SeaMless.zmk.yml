@@ -1,0 +1,10 @@
+file_format: "1"
+id: SeaMless
+name: SeaMless
+type: shield
+url: https://github.com/hama-be/zmk-config-SeaMless
+requires: [seeeduino_xiao_ble]
+features:
+  - keys
+  - encoder
+  - pointer

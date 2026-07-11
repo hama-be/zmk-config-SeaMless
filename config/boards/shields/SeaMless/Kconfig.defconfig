@@ -1,0 +1,6 @@
+if SHIELD_SeaMless
+
+config ZMK_KEYBOARD_NAME
+    default "SeaMless"
+
+endif
